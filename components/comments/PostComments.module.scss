@@ -1,0 +1,14 @@
+@import "styles/variables";
+
+.comments__wrapper {
+  .singleComment__wrapper {
+    list-style: none;
+    color: $color-primary;
+    .singleComment {
+      margin-bottom: $margin-md;
+      a {
+        color: $color-lightblue;
+      }
+    }
+  }
+}

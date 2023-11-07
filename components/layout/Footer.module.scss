@@ -1,0 +1,11 @@
+@import "styles/variables";
+
+.footer {
+  @include flex;
+  background-color: $color-primary;
+  @include color-stack;
+  height: 6vh;
+  min-height: 40px;
+  @include border-sm;
+  @include font-sm;
+}

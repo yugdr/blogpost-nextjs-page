@@ -1,0 +1,13 @@
+@import "styles/variables";
+
+.blog {
+  &__body {
+    width: fit-content;
+    width: $width;
+    @include margin-x-auto;
+
+    main {
+      padding: $padding-md 0;
+    }
+  }
+}

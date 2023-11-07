@@ -1,0 +1,14 @@
+@import "styles/variables";
+
+.header__wrapper {
+  height: 20vh;
+  min-height: 100px;
+  @include flex;
+  @include color-stack;
+  @include border-sm;
+
+  .headline__lg {
+    @include font-h2;
+    color: $color-secondary;
+  }
+}

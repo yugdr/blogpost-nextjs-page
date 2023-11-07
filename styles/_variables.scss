@@ -1,0 +1,65 @@
+// color
+$color-primary: rgb(30 41 59);
+$color-secondary: rgb(255, 255, 255);
+$color-border: #cbd5e1;
+$color-lightblue: rgba(30, 41, 59, 0.7);
+
+@mixin color-stack {
+  background-color: $color-primary;
+  color: $color-secondary;
+}
+
+// font
+@mixin font-h2 {
+  font-size: 2.4rem;
+}
+
+@mixin font-h3 {
+  font-size: 1.8rem;
+}
+
+@mixin font-sm {
+  font-size: 0.8rem;
+}
+
+// width
+$width: 768px;
+
+// margin
+@mixin margin-x-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+$margin-sm: 1rem;
+$margin-md: 2rem;
+
+//padding
+$padding-sm: 1rem;
+$padding-md: 2rem;
+
+// border
+// border-radius
+$border-radius-sm: 0.375rem;
+$border-radius-md: 1.5rem;
+
+%border-style {
+  border: 1px solid $color-border;
+}
+
+@mixin border-md {
+  border-radius: $border-radius-md;
+  @extend %border-style;
+}
+
+@mixin border-sm {
+  border-radius: $border-radius-sm;
+  @extend %border-style;
+}
+
+// flex
+@mixin flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -1,0 +1,45 @@
+@import "styles/variables";
+
+.detailPage__wrapper {
+  .postDetail__wrapper {
+    .userInfo__wrapper {
+      display: flex;
+      gap: 1rem;
+      padding: $padding-sm 0;
+      .user__profile {
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        background-color: $color-primary;
+        @include flex;
+        font-weight: 700;
+        letter-spacing: 2px;
+        @include color-stack;
+      }
+      .user__info {
+        @include font-sm;
+        .username {
+          font-weight: 700;
+        }
+        .city,
+        .email {
+          opacity: 0.8;
+        }
+      }
+    }
+    .post__body {
+      padding-bottom: $padding-md;
+      color: $color-primary;
+    }
+  }
+  .headline__md {
+    @include font-h3;
+    color: $color-primary;
+  }
+  .comment__icon {
+    display: inline-block;
+    margin: $margin-sm;
+    margin-left: 0;
+    cursor: pointer;
+  }
+}

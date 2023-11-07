@@ -1,0 +1,28 @@
+@import "styles/variables";
+
+.posts {
+  &__wrapper {
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    grid-gap: 1rem;
+    gap: 1rem;
+    @include margin-x-auto;
+  }
+}
+
+.button {
+  &__wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.pagination {
+  &__wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+}

@@ -1,0 +1,9 @@
+@import "styles/variables";
+
+.form {
+  display: flex;
+  flex-direction: column;
+  h4 {
+    margin-bottom: $margin-sm;
+  }
+}

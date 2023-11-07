@@ -1,0 +1,15 @@
+@import "styles/variables";
+
+.button {
+  border: none;
+  border-radius: $border-radius-md;
+  width: 8rem;
+  background-color: lighten($color-primary, 10%);
+  color: $color-secondary;
+  padding: 1rem;
+  margin: 1.5rem 0.5rem;
+  transition: 0.5s ease-in-out;
+  &:active {
+    transform: translateY(0.6rem);
+  }
+}
