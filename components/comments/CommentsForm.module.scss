@@ -1,9 +1,16 @@
 @import "styles/variables";
+@import "../UI/Button.module.scss";
 
 .form {
   display: flex;
   flex-direction: column;
   h4 {
     margin-bottom: $margin-sm;
+  }
+  .submitButton {
+    @include button;
+    font-weight: 700;
+    max-height: 3rem;
+    @include margin-x-auto;
   }
 }

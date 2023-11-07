@@ -2,27 +2,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 import { ReactNode } from "react";
 import classes from "./Layout.module.scss";
-import localFont from "next/font/local";
-
-const poppins = localFont({
-  src: [
-    {
-      path: "../../public/fonts/Poppins-Regular.ttf",
-      weight: "400",
-      style: "normal",
-    },
-    {
-      path: "../../public/fonts/Poppins-Bold.ttf",
-      weight: "700",
-      style: "normal",
-    },
-    {
-      path: "../../public/fonts/Poppins-Light.ttf",
-      weight: "300",
-      style: "normal",
-    },
-  ],
-});
+import { poppins } from "@/lib/fonts";
 
 interface Props {
   children?: ReactNode;

@@ -1,6 +1,6 @@
 @import "styles/variables";
 
-.button {
+@mixin button {
   border: none;
   border-radius: $border-radius-md;
   width: 8rem;
@@ -12,4 +12,8 @@
   &:active {
     transform: translateY(0.6rem);
   }
+}
+
+.button {
+  @include button;
 }
