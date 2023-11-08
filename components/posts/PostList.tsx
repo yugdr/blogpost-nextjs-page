@@ -9,7 +9,9 @@ import classes from "./PostList.module.scss";
 import PostItem from "./PostItem";
 import Button from "../UI/Button";
 
-const PostList = ({ posts }: any) => {
+import { PostListProps } from "@/interfaces/interfaces";
+
+const PostList: React.FC<PostListProps> = ({ posts }) => {
   // using the global state from Jotai for setting slice values
   const [currentSliceStart, setCurrentSliceStart] = useAtom(sliceStartAtom);
   const [currentSliceEnd, setCurrentSliceEnd] = useAtom(sliceEndAtom);
@@ -31,7 +33,7 @@ const PostList = ({ posts }: any) => {
   return (
     <>
       <div className={classes.posts__wrapper}>
-        {posts.slice(currentSliceStart, currentSliceEnd).map((post: any) => {
+        {posts.slice(currentSliceStart, currentSliceEnd).map((post) => {
           return <PostItem key={post.id} post={post} />;
         })}
       </div>

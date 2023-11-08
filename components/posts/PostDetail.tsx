@@ -6,7 +6,9 @@ import { TbMessageCircle2, TbMessageCirclePlus } from "react-icons/tb";
 
 import { useState } from "react";
 
-export default function PostDetail(props: any) {
+import { PostDetailProps } from "@/interfaces/interfaces";
+
+export default function PostDetail(props: PostDetailProps) {
   const [commentsVisible, setCommentsVisible] = useState(false);
   const [submitFormVisible, setSubmitFormVisible] = useState(false);
 
@@ -27,7 +29,7 @@ export default function PostDetail(props: any) {
           <div className={classes.user__profile}>
             {props.user.name
               .split(" ")
-              .map((name: any) => name[0])
+              .map((name) => name[0])
               .join("")
               .toUpperCase()}
           </div>
@@ -55,7 +57,7 @@ export default function PostDetail(props: any) {
           onClick={toggleSubmitForm}
         />
       </div>
-      {submitFormVisible ? <CommentsForm postId={props.postId} /> : null}
+      {submitFormVisible ? <CommentsForm /> : null}
     </div>
   );
 }

@@ -1,7 +1,9 @@
 import Link from "next/link";
 import classes from "./PostItem.module.scss";
 
-export default function PostItem({ post }: any) {
+import { PostItemProps } from "@/interfaces/interfaces";
+
+const PostItem: React.FC<PostItemProps> = ({ post }) => {
   return (
     <div key={post.id} className={classes.post__wrapper}>
       <Link href={`/posts/${post.id}`}>
@@ -12,4 +14,6 @@ export default function PostItem({ post }: any) {
       </div>
     </div>
   );
-}
+};
+
+export default PostItem;

@@ -2,18 +2,20 @@ import Link from "next/link";
 import useSWR from "swr";
 import classes from "./PostComments.module.scss";
 
-const PostComments = (props: any) => {
-  const fetcher = async () => {
+import { Comment, PostCommentsProps } from "@/interfaces/interfaces";
+
+const PostComments: React.FC<PostCommentsProps> = (props) => {
+  const fetcher = async (): Promise<Comment[]> => {
     const res = await fetch("https://jsonplaceholder.typicode.com/comments");
-    const data = await res.json();
+    const data: Comment[] = await res.json();
 
     const filteredData = data.filter(
-      (item: any) => item.postId === Number(props.postId)
+      (item) => item.postId === Number(props.postId)
     );
 
     return filteredData;
   };
-  const { data, error, isLoading } = useSWR(
+  const { data, error, isLoading } = useSWR<Comment[], Error>(
     "https://jsonplaceholder.typicode.com/comments",
     fetcher
   );
@@ -23,7 +25,7 @@ const PostComments = (props: any) => {
 
   return (
     <div className={classes.comments__wrapper}>
-      {data.map((comment: any) => (
+      {data?.map((comment) => (
         <ul key={comment.id} className={classes.singleComment__wrapper}>
           <li className={classes.singleComment}>
             <h4>{comment.name}</h4>

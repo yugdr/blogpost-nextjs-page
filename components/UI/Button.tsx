@@ -1,6 +1,11 @@
 import classes from "./Button.module.scss";
 
-const Button = (props: any) => {
+interface ButtonProps {
+  text: string;
+  onClick: () => void;
+}
+
+const Button: React.FC<ButtonProps> = (props) => {
   return (
     <button className={classes.button} onClick={props.onClick}>
       {props.text}

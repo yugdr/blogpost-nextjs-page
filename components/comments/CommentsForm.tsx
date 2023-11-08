@@ -1,12 +1,13 @@
 import { useState } from "react";
-import ErrorModal from "../ErrorModal";
+
 import { Formik, Form, FieldAttributes, useField, FormikHelpers } from "formik";
+import { createTheme, ThemeProvider, Button, TextField } from "@mui/material";
 import * as yup from "yup";
-import TextField from "@mui/material/TextField";
-import classes from "./CommentsForm.module.scss";
-import { Button } from "@mui/material";
-import { createTheme, ThemeProvider } from "@mui/material";
+
+import ErrorModal from "../ErrorModal";
 import { poppins } from "@/lib/fonts";
+
+import classes from "./CommentsForm.module.scss";
 
 // mui theme
 const theme = createTheme({
@@ -27,7 +28,7 @@ interface Values {
   body: string;
 }
 
-// formik input field
+// formik custom input field
 const MyTextField: React.FC<
   {
     label: string;
@@ -58,7 +59,7 @@ const validationSchema = yup.object({
   body: yup.string().required(),
 });
 
-const CommentsForm = (props: any) => {
+const CommentsForm = () => {
   const [networkError, setNetworkError] = useState(false);
 
   return (
@@ -77,7 +78,7 @@ const CommentsForm = (props: any) => {
             try {
               const res = await fetch(
                 // "https://a25da34c-3fe7-40b5-a61e-2f6a2799ce61.mock.pstmn.io/friendlyCaptcha-test", // test response other than 201
-                "https://jsonplaceholder.typicode.com/comments", // response 201
+                "https://jsonplaceholder.typicode.com/comments",
                 {
                   method: "POST",
                   headers: {
