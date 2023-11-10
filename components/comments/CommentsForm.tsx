@@ -97,7 +97,7 @@ const CommentsForm = () => {
               }
               if (res.status !== 201) {
                 setNetworkError(true);
-                // throw new Error("response other than 201");
+                throw new Error("response other than 201");
               }
             } catch (error) {
               setNetworkError(true);

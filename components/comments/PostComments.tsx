@@ -22,10 +22,11 @@ const PostComments: React.FC<PostCommentsProps> = (props) => {
 
   if (error) return <div>failed to load</div>;
   if (isLoading) return <div>loading...</div>;
+  if (!data) return <p>No data</p>;
 
   return (
     <div className={classes.comments__wrapper}>
-      {data?.map((comment) => (
+      {data.map((comment) => (
         <ul key={comment.id} className={classes.singleComment__wrapper}>
           <li className={classes.singleComment}>
             <h4>{comment.name}</h4>

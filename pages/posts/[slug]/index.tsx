@@ -20,19 +20,21 @@ interface PostPageProps {
 export const getStaticPaths: GetStaticPaths = async () => {
   const posts = await getPosts();
 
-  // if posts is null ??
-  if (!posts) {
-    return {
-      paths: [],
-      fallback: false,
-    };
-  }
+  // if posts is null
+  // if (!posts) {
+  //   return {
+  //     paths: [],
+  //     fallback: false,
+  //   };
+  // }
 
-  const paths = posts.map((post) => {
-    return {
-      params: { slug: post.id.toString() },
-    };
-  });
+  const paths = posts
+    ? posts.map((post) => {
+        return {
+          params: { slug: post.id.toString() },
+        };
+      })
+    : [];
 
   return {
     paths,
@@ -40,18 +42,22 @@ export const getStaticPaths: GetStaticPaths = async () => {
   };
 };
 
-export const getStaticProps: GetStaticProps = async (context) => {
+export const getStaticProps: GetStaticProps<{
+  post: PostDetail;
+  user: User;
+}> = async (context) => {
   // fetch post data for single post
   const postId = context.params!.slug;
   const res = await fetch(
     `https://jsonplaceholder.typicode.com/posts/${postId}`
+    // "https://a25da34c-3fe7-40b5-a61e-2f6a2799ce61.mock.pstmn.io/friendlyCaptcha-test"
   );
   const post = await res.json();
 
   // fetch author data for single post
   const user = await getUser(post.userId);
 
-  // if user is undefined ??
+  // if user is undefined
   if (!user) {
     return {
       notFound: true,
